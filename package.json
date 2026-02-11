@@ -6,9 +6,9 @@
   "main": "dist/deposit.js",
   "scripts": {
     "build": "tsc",
-    "deposit": "tsx src/deposit.ts",
-    "deposit-solana": "tsx src/deposit-solana.ts",
-    "start": "tsx src/deposit.ts"
+    "deposit": "npx tsx src/deposit.ts",
+    "deposit-solana": "npx tsx src/deposit-solana.ts",
+    "start": "npx tsx src/deposit.ts"
   },
   "dependencies": {
     "@decibeltrade/sdk": "^0.1.0",
