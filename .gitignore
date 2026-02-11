@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+*.xlsx
+*.log
+env.txt
+node_modules/
+dist/
