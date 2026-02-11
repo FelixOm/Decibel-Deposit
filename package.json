@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@decibeltrade/sdk": "^0.1.0",
-    "@aptos-labs/ts-sdk": "^1.0.0",
+    "@aptos-labs/ts-sdk": "^5.1.2",
     "@solana/web3.js": "^1.95.0",
     "@solana/spl-token": "^0.4.0",
     "bs58": "^5.0.0",
