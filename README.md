@@ -60,9 +60,11 @@ cp .env.example .env
 ## Запуск
 
 ```bash
-npm run deposit
+npm run deposit          # Aptos
+npm run deposit-solana   # Solana CCTP
 # или
 npx tsx src/deposit.ts
+npx tsx src/deposit-solana.ts
 ```
 
 ## Важно
