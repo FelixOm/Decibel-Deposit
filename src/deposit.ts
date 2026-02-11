@@ -3,7 +3,6 @@
  * https://app.decibel.trade/pre-deposits | https://app.decibel.trade/api
  * Uses Aptos TS SDK + Decibel REST. TypeScript only (no official Python SDK).
  */
-import "dotenv/config";
 import {
   Aptos,
   AptosConfig,
@@ -125,6 +124,13 @@ async function depositForWallet(
 }
 
 async function main(): Promise<void> {
+  try {
+    const dotenv = await import("dotenv");
+    dotenv.config();
+  } catch {
+    // dotenv optional
+  }
+
   const rawKeys = process.env.PRIVATE_KEYS ?? "";
   const nodeApiKey =
     process.env.APTOS_NODE_API_KEY ?? process.env.DECIBEL_NODE_API_KEY ?? "";

@@ -42,10 +42,13 @@ npm run deposit-solana
 ## Установка
 
 ```bash
-npm install
+cd Decibel-Deposit   # или путь к клону
+npm install          # обязательно: ставит dotenv, @solana/web3.js, tsx и др.
 cp .env.example .env
 # заполнить .env
 ```
+
+Без `npm install` будет ошибка `Cannot find package 'dotenv'`. Переменные можно задать и через `export` (тогда .env не обязателен).
 
 ## Переменные окружения (.env)
 

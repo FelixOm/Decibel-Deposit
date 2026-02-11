@@ -8,7 +8,6 @@
  * Оба signer'а передаются в sendAndConfirmTransaction([kp, eventKeypair]) — средства не застревают.
  * Reference tx: https://solscan.io/tx/2RNRjzG4L3qAZDNdJ3bsN8FnREEP7iziwyqoD19pqRiNxERuahSMrN8NZ57rEAzTNynLy3eDwk59YSPz4mYU43pN
  */
-import "dotenv/config";
 import {
   Connection,
   Keypair,
@@ -117,6 +116,13 @@ function usdcToRaw(amountUsdc: number): bigint {
 }
 
 async function main(): Promise<void> {
+  try {
+    const dotenv = await import("dotenv");
+    dotenv.config();
+  } catch {
+    // dotenv optional: use export SOLANA_PRIVATE_KEY=... and run
+  }
+
   const rpc = process.env.SOLANA_RPC_URL ?? "https://api.mainnet-beta.solana.com";
   const privateKeyBase58 = process.env.SOLANA_PRIVATE_KEY ?? "";
   const aptosRecipientHex = process.env.APTOS_RECIPIENT_ADDRESS ?? "";
