@@ -116,6 +116,7 @@ function buildDepositForBurnInstruction(
       { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
       { pubkey: new PublicKey("11111111111111111111111111111111"), isSigner: false, isWritable: false },
       { pubkey: eventAuthority, isSigner: false, isWritable: false },
+      { pubkey: TOKEN_MESSENGER_MINTER_PROGRAM_ID, isSigner: false, isWritable: false },
     ],
     data: buffer,
   });
