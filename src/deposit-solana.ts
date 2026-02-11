@@ -63,6 +63,14 @@ function getTokenMinterPda(): PublicKey {
   return pda;
 }
 
+function getEventAuthorityPda(): PublicKey {
+  const [pda] = PublicKey.findProgramAddressSync(
+    [Buffer.from("__event_authority")],
+    TOKEN_MESSENGER_MINTER_PROGRAM_ID
+  );
+  return pda;
+}
+
 function buildDepositForBurnInstruction(
   owner: PublicKey,
   eventRentPayer: PublicKey,
@@ -87,6 +95,7 @@ function buildDepositForBurnInstruction(
   mintRecipient.toBuffer().copy(buffer, offset);
 
   const tokenMinter = getTokenMinterPda();
+  const eventAuthority = getEventAuthorityPda();
 
   return new TransactionInstruction({
     programId: TOKEN_MESSENGER_MINTER_PROGRAM_ID,
@@ -102,6 +111,7 @@ function buildDepositForBurnInstruction(
       { pubkey: LOCAL_TOKEN, isSigner: false, isWritable: true },
       { pubkey: USDC_MINT, isSigner: false, isWritable: true },
       { pubkey: messageSentEventData, isSigner: true, isWritable: true },
+      { pubkey: eventAuthority, isSigner: false, isWritable: false },
       { pubkey: MESSAGE_TRANSMITTER_PROGRAM_ID, isSigner: false, isWritable: false },
       { pubkey: TOKEN_MESSENGER_MINTER_PROGRAM_ID, isSigner: false, isWritable: false },
       { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
