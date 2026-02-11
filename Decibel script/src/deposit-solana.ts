@@ -1,6 +1,11 @@
 /**
  * Decibel pre-deposit via Solana: CCTP (Circle) depositForBurn.
  * Burns USDC on Solana, mints on Aptos (domain 9). Только SOL на газ, Aptos не нужен.
+ *
+ * Две подписи (burn + create account): в одной транзакции мы подписываем
+ * 1) burn — сжигание USDC и отправка сообщения в CCTP (owner = твой кошелёк),
+ * 2) create account — аккаунт для события MessageSent (eventKeypair, одноразовый ключ).
+ * Оба signer'а передаются в sendAndConfirmTransaction([kp, eventKeypair]) — средства не застревают.
  * Reference tx: https://solscan.io/tx/2RNRjzG4L3qAZDNdJ3bsN8FnREEP7iziwyqoD19pqRiNxERuahSMrN8NZ57rEAzTNynLy3eDwk59YSPz4mYU43pN
  */
 import "dotenv/config";
