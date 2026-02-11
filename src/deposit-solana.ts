@@ -111,11 +111,11 @@ function buildDepositForBurnInstruction(
       { pubkey: LOCAL_TOKEN, isSigner: false, isWritable: true },
       { pubkey: USDC_MINT, isSigner: false, isWritable: true },
       { pubkey: messageSentEventData, isSigner: true, isWritable: true },
-      { pubkey: eventAuthority, isSigner: false, isWritable: false },
       { pubkey: MESSAGE_TRANSMITTER_PROGRAM_ID, isSigner: false, isWritable: false },
       { pubkey: TOKEN_MESSENGER_MINTER_PROGRAM_ID, isSigner: false, isWritable: false },
       { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
       { pubkey: new PublicKey("11111111111111111111111111111111"), isSigner: false, isWritable: false },
+      { pubkey: eventAuthority, isSigner: false, isWritable: false },
     ],
     data: buffer,
   });
